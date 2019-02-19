@@ -43,10 +43,6 @@
   opacity: 1;
 }
 
-.editable-text:hover .edit-botton {
-  opacity: 1;
-}
-
 .editable-text.active .edit-button {
   display: none;
 }
