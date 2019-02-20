@@ -1,4 +1,6 @@
 export default class EditableText extends HTMLElement {
+  content = 'Go ahead, edit me however you want!';
+
   constructor() {
     super();
     this.toggleActive = this.toggleActive.bind(this);
@@ -11,11 +13,13 @@ export default class EditableText extends HTMLElement {
   render() {
     this.innerHTML = `<button type="button" class="edit-button">Edit</button>
       <button type="button" class="save-button">Save</button>
-      <p class="text-element">Go ahead, edit me however you want!</p>
+      <p class="text-element">${this.content}</p>
 
       <wysiwyg-editor></wysiwyg-editor>`;
 
-    this.querySelectorAll('.edit-button, .save-button').forEach(button => button.addEventListener('click', this.toggleActive));
+    this.querySelectorAll('.edit-button, .save-button').forEach(button =>
+      button.addEventListener('click', this.toggleActive),
+    );
     this.querySelector('wysiwyg-editor').addEventListener('input', this.handleInput);
     this.addEventListener('delete', this.deleteEditableText);
   }
