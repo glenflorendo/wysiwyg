@@ -14,7 +14,7 @@ export default class Editor extends HTMLElement {
 
   render() {
     this.innerHTML = `
-    <textarea cols="40" rows="5">Go ahead, edit me however you want!</textarea>
+    <textarea cols="40" rows="5">${this.parentElement.content}</textarea>
 
     <section class="styles">
       <div class="form-group">
