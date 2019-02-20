@@ -1,9 +1,15 @@
-#add-button {
+.add-menu {
+  text-align: center;
+  width: 100%;
+}
+
+#add-heading,
+#add-paragraph {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  width: 100%;
+  width: 50%;
   padding: 0.25rem 0;
   transform: translateY(100%);
   z-index: 0;
@@ -16,7 +22,12 @@
   transition: all 350ms;
 }
 
-#add-button:hover {
+#add-paragraph {
+  left: 50%;
+}
+
+#add-heading:hover,
+#add-paragraph:hover {
   background-color: hsl(208, 70%, 80%);
   opacity: 0.9;
 }
