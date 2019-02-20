@@ -17,7 +17,6 @@ export default class EditableText extends HTMLElement {
 
     this.querySelectorAll('.edit-button, .save-button').forEach(button => button.addEventListener('click', this.toggleActive));
     this.querySelector('wysiwyg-editor').addEventListener('input', this.handleInput);
-    this.addEventListener('delete', this.deleteEditableText);
   }
 
   toggleActive() {
@@ -47,9 +46,5 @@ export default class EditableText extends HTMLElement {
 
   set active(val) {
     val ? this.setAttribute('active', '') : this.removeAttribute('active');
-  }
-
-  deleteEditableText() {
-    this.remove();
   }
 }
