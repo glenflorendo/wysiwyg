@@ -1,13 +1,11 @@
-import toggleActive from './toggleActive.js';
-import handleEventInput from './handleEventInput.js';
-import handleAddParagraph from './handleAddParagraph.js';
+import Editor from './components/Editor.js';
+import EditableText from './components/EditableText.js';
+import EditableHeading from './components/EditableHeading.js';
 
-document
-  .querySelectorAll('.edit-button, .save-button')
-  .forEach(button => button.addEventListener('click', toggleActive));
+import addParagraph from './addParagraph.js';
 
-document
-  .querySelectorAll('.editor')
-  .forEach(editor => editor.addEventListener('input', handleEventInput));
+customElements.define('wysiwyg-editor', Editor);
+customElements.define('wysiwyg-editable-text', EditableText);
+customElements.define('wysiwyg-editable-heading', EditableHeading);
 
-document.getElementById('add-button').addEventListener('click', handleAddParagraph);
+document.getElementById('add-button').addEventListener('click', addParagraph);
