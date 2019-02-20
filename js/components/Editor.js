@@ -1,7 +1,10 @@
 export default class Editor extends HTMLElement {
+  handleDelete = new CustomEvent('delete', {
+    bubbles: true,
+  });
+
   constructor() {
     super();
-
     this.handleInput = this.handleInput.bind(this);
   }
 
@@ -43,8 +46,15 @@ export default class Editor extends HTMLElement {
           </select>
         </label>
       </div>
+
+      <button name="delete" type="button" class="delete-button">Delete</button>
     </section>
+    
     `;
+
+    this.querySelector('.delete-button').addEventListener('click', event =>
+      event.target.dispatchEvent(this.handleDelete),
+    );
   }
 
   /**

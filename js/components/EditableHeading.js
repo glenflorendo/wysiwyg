@@ -8,12 +8,13 @@ export default class EditableHeading extends EditableText {
   render() {
     this.innerHTML = `<button type="button" class="edit-button">Edit</button>
       <button type="button" class="save-button">Save</button>
-      <${this.heading} class="text-element">Go ahead, edit me however you want!</${this.heading}>
+      <${this.heading} class="text-element">Your Title</${this.heading}>
 
       <wysiwyg-editor></wysiwyg-editor>`;
 
     this.querySelectorAll('.edit-button, .save-button').forEach(button => button.addEventListener('click', this.toggleActive));
     this.querySelector('wysiwyg-editor').addEventListener('input', this.handleInput);
+    this.addEventListener('delete', this.deleteEditableText);
   }
 
   get heading() {
